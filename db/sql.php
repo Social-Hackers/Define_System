@@ -407,7 +407,13 @@ class Sql {
 	                $values_parts[] = '?';
 	                $this->bind_values_insert[] = (string)$each;
 	            } else {
-	                $values_parts[] = "'".(string)$each."'";
+	                $sql_functions = ['NOW()'];
+	                if (in_array(strtoupper((string)$each), $sql_functions)) {
+	                    $values_parts[] = $each;
+	                } else {
+	                    $values_parts[] = "'".(string)$each."'";
+	                }
+
 	            }
 	        }
 

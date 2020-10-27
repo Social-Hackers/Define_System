@@ -762,7 +762,8 @@ class DefineSystem {
 	        $this->msg[] = $name . ' ' . $entry . ' is already set';
 	        return false;
 	    }
-	    $value = preg_replace("/\\".DIRECTORY_SEPARATOR."$/", '', $string);
+	    $value = realpath($string);
+	    $value = $value ? $value : null;
 	    $this->{$property} = $value;
 	    return true;
 	}

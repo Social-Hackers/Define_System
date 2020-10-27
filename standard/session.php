@@ -122,6 +122,7 @@ class Session {
 		    return getDbSession(self::$db_session_connection, self::$session_id, $name);
 		} else {
 		    self::$msg[] = 'unknown session style,please make sure your set session style is correct : [ session | db]';
+		    return false;
 		}
 
 	}
@@ -185,7 +186,7 @@ class Session {
 	}
 
 	public static function setDbSessionConnection($connection) {
-	    if ($connection instanceof Db) {
+	    if (! is_null(self::$db_session_connection) && $connection instanceof Db) {
 	        self::$db_session_connection = $connection;
 	    }
 	}
