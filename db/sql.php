@@ -141,7 +141,7 @@ class Sql {
 	            $this->msg[] = 'Please enter correct column name : ' . print_r($column, true);
 	            return;
 	        }
-	        if (! is_single_word($value)) {
+	        if (! is_string_numeric($value)) {
 	            $this->msg[] = 'Please enter correct column value : ' . print_r($value, true);
 	            return;
 	        }
