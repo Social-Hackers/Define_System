@@ -590,10 +590,10 @@ class Sql {
 	        $this->bind_values_array = $this->bind_values_insert;
 	        return;
 	    }
+	    if (count($this->bind_values_update)) {
+	        $this->bind_values_array = array_merge($this->bind_values_array, $this->bind_values_update);
+	    }
 	    if (count($this->bind_values_where) > 0) {
-	        if ($this->bind_values_update) {
-	            $this->bind_values_array = array_merge($this->bind_values_array, $this->bind_values_update);
-	        }
 	        if (count($this->bind_values_where) > 0) {
 	            $this->bind_values_array = array_merge($this->bind_values_array, $this->bind_values_where);
 	        }
