@@ -114,8 +114,7 @@ class DefineSystem {
 	 * @return boolean
 	 */
 	public function setPrefunctionsDirectory($directory) {
-	    $remained = (is_string($directory) && ! preg_match("/^\\".DIRECTORY_SEPARATOR."/", $directory)) ? DIRECTORY_SEPARATOR . $directory : $directory;
-	    return $this->setStringPropertySingle($remained, 'prefunctions', 'directory');
+	    return $this->setStringPropertySingle($directory, 'prefunctions', 'directory');
 	}
 
 	/**
