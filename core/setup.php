@@ -114,8 +114,7 @@ class DefineSystem {
 	 * @return boolean
 	 */
 	public function setPrefunctionsDirectory($directory) {
-	    $remained = (is_string($directory) && ! preg_match("/^\\".DIRECTORY_SEPARATOR."/", $directory)) ? DIRECTORY_SEPARATOR . $directory : $directory;
-	    return $this->setStringPropertySingle($remained, 'prefunctions', 'directory');
+	    return $this->setStringPropertySingle($directory, 'prefunctions', 'directory');
 	}
 
 	/**
@@ -302,7 +301,7 @@ class DefineSystem {
 	        if (! is_null($this->functions_directory)) {
 	            DefineSystem\loadFunctions($this->functions_directory, $this->route->defaultFunction());
 	            if (! is_null($this->prefunctions_directory)) {
-	                DefineSystem\loadFunctions($this->functions_directory . $this->prefunctions_directory);
+	                DefineSystem\loadFunctions($this->prefunctions_directory);
 	            }
 	        } else {
 	            $this->msg[] = '[Defines Warnning] functions loading is recommanded : please use setFunctionsDirectory() mehod';
