@@ -113,7 +113,7 @@ function autoloadDirectoryHandle($directory, $extension) {
 
     while ($file = readdir($handle)) {
 
-        if (in_array($file, EXCLUSIVE_AUTOLOAD_DIRECTORY)) {
+        if (in_array($file, json_decode(EXCLUSIVE_AUTOLOAD_DIRECTORY))) {
             continue;
         }
 
