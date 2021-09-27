@@ -681,6 +681,10 @@ class DefineSystem {
 	            $this->msg[] = 'cannot set route on your functions directory : '.print_r($route, true);
 	            return false;
 	        }
+	        if (! empty($this->prefunctions_directory) && strpos($route, realpath($this->prefunctions_directory) !== false)) {
+				$this->msg[] = 'cannot set toure on your prefunctions directory : '.print_r($route, true);
+				return false;
+			}
 	        if (! empty($this->actions_directory) && strpos($route, realpath($this->actions_directory)) !== false) {
 	            $this->msg[] = 'cannot set route on your actions directory : '.print_r($route, true);
 	            return false;

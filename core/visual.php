@@ -208,6 +208,34 @@ class Visual {
             Cache::store($cache_info, $key, $file);
         }
     }
+    
+    /**
+     * return get value as index
+     * 
+     * @param string $index
+     */
+    public function gets($index) {
+		
+		if (! is_string($index) || $index === '' || ! array_key_exists($index, $this->gets)) {
+			return '';
+		}
+		
+		return $this->gets[$index];
+	}
+	
+	/**
+	 * return post value as index
+	 * 
+	 * @param string $index
+	 */
+	public function posts($index) {
+		
+		if (! is_string($index) || $index === '' || ! array_key_exists($index, $this->posts)) {
+			return '';
+		}
+		
+		return $this->posts[$index];
+	}
 
     /**
      * returns system measage
