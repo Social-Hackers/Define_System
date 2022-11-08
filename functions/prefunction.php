@@ -52,28 +52,3 @@ function eraseTraverse($path) {
 
     return $path;
 }
-
-
-class PreFunctions {
-
-
-	public static function fillUpSlash($directory) {
-		return preg_match('/\/$/su', $directory) ? $directory : $directory.'/';
-	}
-
-	public static function isTypicalString($str, $strict = false) {
-		if (!is_string($str)) {
-			return false;
-		}
-		if (strlen($str) === 0) {
-			return false;
-		}
-		if ($strict) {
-			if (!preg_match('/^[a-z0-9_-]+$/isu', $str)) {
-				return false;
-			}
-		}
-
-		return true;
-	}
-}
