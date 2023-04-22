@@ -800,7 +800,7 @@ class DefineSystem {
 			return false;
 		}
 		if ($strict) {
-			if (!preg_match("/\A[(a-z)|(0-9)|(_)|(-)|(\\" . DIRECTORY_SEPARATOR . ")|(\.)]+\z/is", $str)) {
+			if (!preg_match("/^[(\\" . DIRECTORY_SEPARATOR . ")|(a-z)|(0-9)|(_)|(-)|(\.)]+/is", $str)) {
 				return false;
 			}
 		}
